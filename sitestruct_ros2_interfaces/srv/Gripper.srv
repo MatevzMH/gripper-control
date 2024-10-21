@@ -1,0 +1,9 @@
+# This defines an atomic action message for closing or openening a gripper
+
+bool open
+float64 delay
+---
+# Return the success or failure of the action
+bool success
+# Returns an error message if something went wrong
+string message
