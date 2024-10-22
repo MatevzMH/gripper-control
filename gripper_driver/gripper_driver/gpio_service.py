@@ -82,7 +82,6 @@ class GPIOControlNode(Node):
             response.message = "Delay must be between 0.1 and 5."
             print(f"Invalid delay parameter: {request.delay}")
             return response
-        print(f"Delay param: {self.delay}")
         if request.open:
             self.open_gripper("right")
             response.success = True
