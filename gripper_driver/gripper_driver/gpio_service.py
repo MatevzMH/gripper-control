@@ -97,6 +97,32 @@ class GPIOControlNode(Node):
         sides = ["left", "right"]
         assert side in sides
         if side == "left":
+            GPIO.output(GPIO_PIN_L_1_a, GPIO.LOW)
+            GPIO.output(GPIO_PIN_L_1_b, GPIO.HIGH)
+            GPIO.output(GPIO_PIN_L_2_a, GPIO.HIGH)
+            GPIO.output(GPIO_PIN_L_2_b, GPIO.LOW)
+            time.sleep(self.delay)
+            GPIO.output(GPIO_PIN_L_1_a, GPIO.LOW)
+            GPIO.output(GPIO_PIN_L_1_b, GPIO.LOW)
+            GPIO.output(GPIO_PIN_L_2_a, GPIO.LOW)
+            GPIO.output(GPIO_PIN_L_2_b, GPIO.LOW)
+        elif side == "right":            
+            GPIO.output(GPIO_PIN_R_1_a, GPIO.LOW)
+            GPIO.output(GPIO_PIN_R_1_b, GPIO.HIGH)
+            GPIO.output(GPIO_PIN_R_2_a, GPIO.HIGH)
+            GPIO.output(GPIO_PIN_R_2_b, GPIO.LOW)
+            time.sleep(self.delay)
+            GPIO.output(GPIO_PIN_R_1_a, GPIO.LOW)
+            GPIO.output(GPIO_PIN_R_1_b, GPIO.LOW)
+            GPIO.output(GPIO_PIN_R_2_a, GPIO.LOW)
+            GPIO.output(GPIO_PIN_R_2_b, GPIO.LOW)
+        else:
+            raise Warning("Must be right of left")
+
+    def close_gripper(self, side: str):
+        sides = ["left", "right", "both"]
+        assert side in sides
+        if side == "left":
             GPIO.output(GPIO_PIN_L_1_a, GPIO.HIGH)
             GPIO.output(GPIO_PIN_L_1_b, GPIO.LOW)
             GPIO.output(GPIO_PIN_L_2_a, GPIO.LOW)
@@ -111,32 +137,6 @@ class GPIOControlNode(Node):
             GPIO.output(GPIO_PIN_R_1_b, GPIO.LOW)
             GPIO.output(GPIO_PIN_R_2_a, GPIO.LOW)
             GPIO.output(GPIO_PIN_R_2_b, GPIO.HIGH)
-            time.sleep(self.delay)
-            GPIO.output(GPIO_PIN_R_1_a, GPIO.LOW)
-            GPIO.output(GPIO_PIN_R_1_b, GPIO.LOW)
-            GPIO.output(GPIO_PIN_R_2_a, GPIO.LOW)
-            GPIO.output(GPIO_PIN_R_2_b, GPIO.LOW)
-        else:
-            raise Warning("Must be right of left")
-
-    def close_gripper(self, side: str):
-        sides = ["left", "right", "both"]
-        assert side in sides
-        if side == "left":
-            GPIO.output(GPIO_PIN_L_1_a, GPIO.LOW)
-            GPIO.output(GPIO_PIN_L_1_b, GPIO.HIGH)
-            GPIO.output(GPIO_PIN_L_2_a, GPIO.HIGH)
-            GPIO.output(GPIO_PIN_L_2_b, GPIO.LOW)
-            time.sleep(self.delay)
-            GPIO.output(GPIO_PIN_L_1_a, GPIO.LOW)
-            GPIO.output(GPIO_PIN_L_1_b, GPIO.LOW)
-            GPIO.output(GPIO_PIN_L_2_a, GPIO.LOW)
-            GPIO.output(GPIO_PIN_L_2_b, GPIO.LOW)
-        elif side == "right":
-            GPIO.output(GPIO_PIN_R_1_a, GPIO.LOW)
-            GPIO.output(GPIO_PIN_R_1_b, GPIO.HIGH)
-            GPIO.output(GPIO_PIN_R_2_a, GPIO.HIGH)
-            GPIO.output(GPIO_PIN_R_2_b, GPIO.LOW)
             time.sleep(self.delay)
             GPIO.output(GPIO_PIN_R_1_a, GPIO.LOW)
             GPIO.output(GPIO_PIN_R_1_b, GPIO.LOW)
