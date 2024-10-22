@@ -8,11 +8,6 @@ from rclpy.node import Node
 import RPi.GPIO as GPIO
 import time
 
-# GPIO_PIN_L_a = 17
-# GPIO_PIN_L_b = 27
-# GPIO_PIN_R_a = 2
-# GPIO_PIN_R_b = 3
-
 GPIO_PIN_L_1_a = 2
 GPIO_PIN_L_1_b = 3
 GPIO_PIN_L_2_a = 17
