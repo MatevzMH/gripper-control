@@ -3,7 +3,6 @@ from std_srvs.srv import SetBool
 from sitestruct_ros2_interfaces.srv import Gripper
 import rclpy
 
-# from colorama import Fore
 from rclpy.node import Node
 import RPi.GPIO as GPIO
 import time
