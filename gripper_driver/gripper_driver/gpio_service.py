@@ -60,10 +60,12 @@ class GPIOControlNode(Node):
             self.open_gripper("left")
             response.success = True
             response.message = "L gripper OPENED"
+            self.get_logger().info(f"Opened left gripper.")
         else:
             self.close_gripper("left")
             response.success = True
             response.message = "L gripper CLOSED"
+            self.get_logger().info(f"Closed left gripper.")
         return response
 
     def gpio_control_callback_R(self, request, response):
@@ -80,10 +82,12 @@ class GPIOControlNode(Node):
             self.open_gripper("right")
             response.success = True
             response.message = "R gripper OPENED"
+            self.get_logger().info(f"Opened right gripper.")
         else:
             self.close_gripper("right")
             response.success = True
             response.message = "R gripper CLOSED"
+            self.get_logger().info(f"Closed right gripper.")
         return response
 
 
